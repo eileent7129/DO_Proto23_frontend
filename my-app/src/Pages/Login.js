@@ -7,9 +7,11 @@ const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 // import "./App.css";
 
 
-function usersObjectToArray({ Data }) {
+function usersObjectToArray(Data) {
   const keys = Object.keys(Data);
+  console.log("data: ", Data);
   const users = keys.map((key) => Data[key]);
+  console.log("users: ", users);
   return users;
 }
 
@@ -26,6 +28,7 @@ function Login() {
   const [error, setError] = useState('');
 
   const fetchUsers = () => {
+	console.log("fetching users");
     axios
       .get(USERS_ENDPOINT)
       .then(({ data }) => setUsers(usersObjectToArray(data)))

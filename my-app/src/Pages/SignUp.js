@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpForm from "../Components/SignUpForm";
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;
-
-
-
 
 function usersObjectToArray(Data) {
   const keys = Object.keys(Data);
@@ -17,31 +13,32 @@ function usersObjectToArray(Data) {
 }
 
 function ErrorMessage({ message }) {
-	return (
-	  <div className="error-message">
-		{message}
-	  </div>
-	);
-  }
+  return <div className="error-message">{message}</div>;
+}
 
 function SignUp() {
   const [users, setUsers] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-  const postUsers = () => {
-	
-  };
+ 
 
-//   useEffect(fetchUsers, []);
-  console.log("These are the users: ", users);
-  console.log()
+  //   const postUsers = (event) => {
+  //     event.preventDefault();
+  //     axios.post(USERS_ENDPOINT, {  })
+  //       .then(fetchUsers)
+  //       .catch(() => { setError('There was a problem adding the user.'); });
+  //   };
+
+  //   useEffect(fetchUsers, []);
+
+  console.log();
 
   return (
-	<>
-	<SignUpForm/>
-	{/* <h2>Login</h2> */}
-	{error && <ErrorMessage message={error} />}
-	</>
+    <>
+      <SignUpForm />
+      {/* <h2>Login</h2> */}
+      {error && <ErrorMessage message={error} />}
+    </>
   );
 }
 

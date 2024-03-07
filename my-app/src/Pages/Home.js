@@ -3,6 +3,7 @@ import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { BACKEND_URL } from "../constants";
+import SignUp from "./SignUp";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/get_product`;
 
 function usersObjectToArray(Data) {
@@ -37,6 +38,7 @@ function Home() {
                 <Routes>
                     <Route path="/" element={<ProductList products={products} error={error} />} />
                     <Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SignUp />} />
                 </Routes>
             </Router>
         </>
@@ -51,6 +53,9 @@ function ProductList({ products, error }) {
                     <li>
                         <a href="/login">Login</a>
                     </li>
+					<li>
+						<a href="/signup">Sign Up</a>
+					</li>
                 </ul>
             </nav>
             <h2>Home</h2>

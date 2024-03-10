@@ -1,3 +1,8 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
 .form{
 	display: flex;
 	justify-content: center;
@@ -6,5 +11,10 @@
 .register-form{
 	display: flex;
 	flex-direction: column;
-	width: 30%;
+	justify-content: space-between;
+	width: 60%;
 }
+
+.register-form > *:not(:last-child) {
+	margin-bottom: 15px; 
+  }

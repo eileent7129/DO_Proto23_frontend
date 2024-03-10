@@ -1,3 +1,4 @@
+import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Home from "./Pages/Home";
@@ -7,8 +8,7 @@ function App() {
   return (
     <>
       {/* <Login /> */}
-	  <SignUp />
-	  {/* <Home /> */}
+	  {/* <SignUp /> */}
 	  {/* <Dashbaord /> */}
     </>
   );

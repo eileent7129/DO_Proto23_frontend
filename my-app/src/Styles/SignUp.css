@@ -1,0 +1,18 @@
+*{
+	margin: 0px;
+}
+
+.sign-up {
+	display: flex;
+	justify-content: flex-end; 
+	align-items: center; 
+	height: 100vh;
+}
+
+
+.sign-up-form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+}

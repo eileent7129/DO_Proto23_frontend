@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpForm from "../Components/SignUpForm";
+import "../Styles/SignUp.css";
+import { Link } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 
@@ -20,8 +22,6 @@ function SignUp() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
- 
-
   //   const postUsers = (event) => {
   //     event.preventDefault();
   //     axios.post(USERS_ENDPOINT, {  })
@@ -34,11 +34,15 @@ function SignUp() {
   console.log();
 
   return (
-    <>
-      <SignUpForm />
-      {/* <h2>Login</h2> */}
-      {error && <ErrorMessage message={error} />}
-    </>
+    <div className="sign-up">
+	<div className="logo">
+
+	</div>
+      <div className="sign-up-form">
+        <SignUpForm />
+        {/* <Link to={"./Login"}>Login</Link> */}
+      </div>
+    </div>
   );
 }
 

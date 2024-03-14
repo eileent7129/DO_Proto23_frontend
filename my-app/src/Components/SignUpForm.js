@@ -8,11 +8,14 @@ const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 
 function SignUpForm({ onSubmit }) {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
+	saved: [],
+	shopping_cart: [],
+	followers: [],
   });
 
   const handleChange = (event) => {
@@ -46,18 +49,18 @@ function SignUpForm({ onSubmit }) {
             id="outlined-basic"
             label="first name"
             variant="outlined"
-            value={formData.firstName}
+            value={formData.first_name}
             onChange={handleChange}
-            name="firstName"
+            name="first_name"
             required
           />
           <TextField
             id="outlined-basic"
             label="last name"
             variant="outlined"
-            value={formData.lastName}
+            value={formData.last_name}
             onChange={handleChange}
-            name="lastName"
+            name="last_name"
             required
           />
 

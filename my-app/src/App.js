@@ -8,8 +8,8 @@ function App() {
     <>
 	<Home/>
       {/* <Login /> */}
-	  {/* <SignUp /> */}
-	  {/* <Dashbaord /> */}
+      {/* <SignUp /> */}
+      {/* <Dashboard /> */}
     </>
   );
 }

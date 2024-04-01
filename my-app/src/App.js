@@ -6,7 +6,7 @@ import Dashbaord from "./Pages/Dashboard";
 function App() {
   return (
     <>
-	<Home/>
+	    <Home/>
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <Dashboard /> */}

@@ -61,7 +61,7 @@ function Login() {
 
       <Router>
         <Routes>
-          <Route path="/login" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>

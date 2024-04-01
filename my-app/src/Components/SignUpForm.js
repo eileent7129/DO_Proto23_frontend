@@ -43,6 +43,17 @@ function SignUpForm({ onSubmit }) {
 
   return (
     <>
+      <nav>
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+          <li>
+            <a href="/signup">Login</a>
+          </li>
+        </ul>
+      </nav>
+
       <div className="form">
         <form onSubmit={handleSubmit} className="register-form">
           <TextField

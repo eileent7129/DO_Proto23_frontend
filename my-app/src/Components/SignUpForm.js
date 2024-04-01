@@ -13,10 +13,11 @@ function SignUpForm({ onSubmit }) {
     username: "",
     email: "",
     password: "",
-	saved: [],
-	shopping_cart: [],
-	followers: [],
+    saved: [],
+    shopping_cart: [],
+    followers: [],
   });
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     setFormData({
@@ -31,18 +32,19 @@ function SignUpForm({ onSubmit }) {
       const response = await axios.post(USERS_ENDPOINT, data);
       console.log("Sign-up successful:", response.data);
     } catch (error) {
-      console.log("an error occured with posting new user: ", error);
+      setError("There was a problem adding the user.");
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-	console.log("submit button pressed");
+    console.log("submit button pressed");
     submittedData(formData);
   };
 
   return (
     <>
+      {error}
       <div className="form">
         <form onSubmit={handleSubmit} className="register-form">
           <TextField
@@ -102,7 +104,7 @@ function SignUpForm({ onSubmit }) {
               alignSelf: "center",
               height: "50px",
             }}
-			type="submit"
+            type="submit"
             variant="contained"
             disableElevation
           >

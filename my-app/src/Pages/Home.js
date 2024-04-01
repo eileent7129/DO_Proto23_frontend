@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { BACKEND_URL } from "../constants";
 import SignUp from "./SignUp";
-const PRODUCTS_ENDPOINT = `${BACKEND_URL}/get_product`;
+const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 function usersObjectToArray(Data) {
     const keys = Object.keys(Data);

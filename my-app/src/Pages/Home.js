@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { BACKEND_URL } from "../constants";
 import SignUp from "./SignUp";
+import Followers from "./Followers";
+import ViewItem from "./ViewItem";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 function usersObjectToArray(Data) {
@@ -39,6 +41,8 @@ function Home() {
                     <Route path="/" element={<ProductList products={products} error={error} />} />
                     <Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
+                    <Route path="/followers" element={<Followers />} />
+					<Route path="/viewItem" element={<ViewItem />} />
                 </Routes>
             </Router>
         </>
@@ -55,6 +59,12 @@ function ProductList({ products, error }) {
                     </li>
 					<li>
 						<a href="/signup">Sign Up</a>
+					</li>
+                    <li>
+                        <a href="/followers">Followers</a>
+                    </li>
+					<li>
+						<a href="viewItem">View Item</a>
 					</li>
                 </ul>
             </nav>

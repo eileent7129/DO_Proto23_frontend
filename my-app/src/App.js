@@ -10,6 +10,8 @@ function App() {
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <Dashboard /> */}
+      {/* <Followers /> */}
+      {/* <ViewItem /> */}
     </>
   );
 }

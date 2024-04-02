@@ -35,9 +35,23 @@ function SignUp() {
 
   return (
     <div className="sign-up">
+      <div className="navbar">
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
 	<div className="logo">
-
+		<h1>UNIMARKET</h1>
 	</div>
+	
       <div className="sign-up-form">
         <SignUpForm />
         {/* <Link to={"./Login"}>Login</Link> */}

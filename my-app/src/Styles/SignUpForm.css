@@ -1,20 +1,22 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
-}
-
-.form{
+  }
+  
+  .form {
 	display: flex;
 	justify-content: center;
-}
-
-.register-form{
+	align-items: center;
+	margin-top: 20px; /* Adjust this value based on your design */
+  }
+  
+  .register-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 60%;
-}
-
-.register-form > *:not(:last-child) {
-	margin-bottom: 15px; 
   }
+  
+  .register-form > *:not(:last-child) {
+	margin-bottom: 15px;
+  }
+  

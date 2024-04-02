@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
-import LoginForm from "../Components/LoginForm"
+import LoginForm from "../Components/LoginForm";
+import "../Styles/Login.css";
 
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 
 function Login() {
-
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <a href="/home">Home</a>
-          </li>
-          <li>
-            <a href="/signup">Sign Up</a>
-          </li>
-        </ul>
-      </nav>
+    <div className="login">
+      <div className="navbar">
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/signup">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-      <h2>Login</h2>
-	  <LoginForm />
-    </>
+      <div className="logo">
+        <h2>Login to UNIMARKET</h2>
+      </div>
+
+      <div className="login-form">
+        <LoginForm />
+      </div>
+    </div>
   );
 }
 

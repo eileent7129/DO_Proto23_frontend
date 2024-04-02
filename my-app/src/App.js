@@ -1,8 +1,8 @@
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
-import Followers from "./Followers";
-import ViewItem from "./ViewItem";
+import Followers from "./Pages/Followers";
+import ViewItem from "./Pages/ViewItem";
 import Dashbaord from "./Pages/Dashboard";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

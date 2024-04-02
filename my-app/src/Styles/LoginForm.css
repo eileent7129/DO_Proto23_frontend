@@ -1,5 +1,17 @@
-
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px; 
+  }
+  
 .login-form{
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 }
+
+.login-form > *:not(:last-child) {
+	margin-bottom: 15px;
+  }
+  

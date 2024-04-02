@@ -1,12 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../Styles/SignUpForm.css";
-import axios from "axios";
+
 import { BACKEND_URL } from "../constants";
-const USERS_ENDPOINT = `${BACKEND_URL}/users`;
+const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
 function SignUpForm({ onSubmit }) {
+	const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -31,6 +34,7 @@ function SignUpForm({ onSubmit }) {
     try {
       const response = await axios.post(USERS_ENDPOINT, data);
       console.log("Sign-up successful:", response.data);
+	  navigate("/login");
     } catch (error) {
       setError("There was a problem adding the user.");
     }
@@ -43,17 +47,7 @@ function SignUpForm({ onSubmit }) {
   };
 
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <a href="/home">Home</a>
-          </li>
-          <li>
-            <a href="/signup">Login</a>
-          </li>
-        </ul>
-      </nav>
+    <> 
 
       <div className="form">
         <form onSubmit={handleSubmit} className="register-form">

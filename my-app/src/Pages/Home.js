@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { BACKEND_URL } from "../constants";
 import SignUp from "./SignUp";
+import Login from "./Login";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 function usersObjectToArray(Data) {
@@ -34,20 +34,6 @@ function Home() {
 
     return (
         <>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<ProductList products={products} error={error} />} />
-                    <Route path="/login" element={<Login />} />
-					<Route path="/signup" element={<SignUp />} />
-                </Routes>
-            </Router>
-        </>
-    );
-}
-
-function ProductList({ products, error }) {
-    return (
-        <>
             <nav>
                 <ul>
                     <li>
@@ -72,14 +58,6 @@ function ProductList({ products, error }) {
                 </div>
             ))}
             {error && <p>{error}</p>}
-        </>
-    );
-}
-
-function Login() {
-    return (
-        <>
-            <h2>Login</h2>
         </>
     );
 }

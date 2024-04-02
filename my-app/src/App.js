@@ -1,6 +1,8 @@
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
+import Followers from "./Followers";
+import ViewItem from "./ViewItem";
 import Dashbaord from "./Pages/Dashboard";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

@@ -3,6 +3,8 @@ import axios from "axios";
 
 import { BACKEND_URL } from "../constants";
 import SignUp from "./SignUp";
+import Followers from "./Followers";
+import ViewItem from "./ViewItem";
 import Login from "./Login";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
@@ -41,6 +43,12 @@ function Home() {
                     </li>
 					<li>
 						<a href="/signup">Sign Up</a>
+					</li>
+                    <li>
+                        <a href="/followers">Followers</a>
+                    </li>
+					<li>
+						<a href="viewItem">View Item</a>
 					</li>
                 </ul>
             </nav>

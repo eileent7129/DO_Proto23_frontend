@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { BACKEND_URL } from "../constants";
+//import topnav from "../Components/Home.css";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 function usersObjectToArray(Data) {
@@ -30,6 +31,8 @@ function Home() {
     console.log("These are the products: ", products);
     console.log();
 
+
+    
     return (
         <>
             <nav>

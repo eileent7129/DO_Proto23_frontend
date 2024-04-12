@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './Navbar.css';
 
 import { BACKEND_URL } from "../constants";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;

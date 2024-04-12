@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ProductForm from "../Components/ProductForm";
 
 import { BACKEND_URL } from "../constants";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
@@ -61,6 +62,7 @@ function Home() {
                     <p>User ID: {product.user_id}</p>
                 </div>
             ))}
+			 <ProductForm />
             {error && <p>{error}</p>}
         </>
     );

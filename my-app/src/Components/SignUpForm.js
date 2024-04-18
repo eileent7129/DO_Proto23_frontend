@@ -8,7 +8,7 @@ import "../Styles/SignUpForm.css";
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
-function SignUpForm({ onSubmit }) {
+function SignUpForm() {
 	const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first_name: "",
@@ -29,11 +29,10 @@ function SignUpForm({ onSubmit }) {
     });
   };
 
-  const submittedData = async (data) => {
-    console.log("register data (in SignUp.js): ", data);
+  const handleRegister = async () => {
     try {
-      const response = await axios.post(USERS_ENDPOINT, data);
-      console.log("Sign-up successful:", response.data);
+      const response = await axios.post(USERS_ENDPOINT, formData);
+      console.log("User registeration successful:", response.data);
 	  navigate("/login");
     } catch (error) {
       setError("There was a problem adding the user.");
@@ -43,7 +42,7 @@ function SignUpForm({ onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit button pressed");
-    submittedData(formData);
+	handleRegister();
   };
 
   return (

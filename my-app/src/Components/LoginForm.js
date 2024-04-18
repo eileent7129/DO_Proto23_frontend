@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import "../Styles/LoginForm.css";
 import { BACKEND_URL } from "../constants.js";
 
-const USERS_ENDPOINT = `${BACKEND_URL}users`;
+const LOGIN_ENDPOINT = `${BACKEND_URL}users/login`;
 
 function objectToArray(Data) {
   const keys = Object.keys(Data);
@@ -14,8 +14,8 @@ function objectToArray(Data) {
   return users;
 }
 
-function LoginForm() {
-	const navigate = useNavigate();
+function LoginForm({logIn}) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -28,38 +28,24 @@ function LoginForm() {
     });
   };
 
-  const submittedData = async (loginData) => {
+  const handleLogin = async () => {
     // make get request to users
-    console.log("login data in submittedData", loginData);
     try {
-      const response = await axios.get(USERS_ENDPOINT);
+      const response = await axios.post(LOGIN_ENDPOINT, formData);
       if (response) {
-        const data = response.data;
-        console.log("response data: ", data);
-        const users = objectToArray(data);
-
-        const foundUser = users.find(
-          (user) =>
-            loginData.username == user.username && loginData.password == user.password
-        );
-
-        if (foundUser) {
-			console.log("Login successful!")
-			navigate('/');
-        }
-		else {
-			console.log(`User with username: ${loginData.username} not found`);
-		}
+        console.log("Login successful!");
+		logIn(formData.username);
+        navigate("/dashboard");
       }
-    } catch (e) {
-      console.log("error retrieving users: ", e);
+    } catch (error) {
+      console.log("error logging in: ", error);
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("login data submitted");
-    submittedData(formData);
+    handleLogin();
   };
 
   return (

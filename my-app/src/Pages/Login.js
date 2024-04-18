@@ -5,7 +5,7 @@ import "../Styles/Login.css";
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 
-function Login() {
+function Login({logIn}) {
   return (
     <div className="login">
       <div className="navbar">
@@ -26,7 +26,7 @@ function Login() {
       </div>
 
       <div className="login-form">
-        <LoginForm />
+        <LoginForm logIn={logIn}/>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './Navbar.css';
 import ProductForm from "../Components/ProductForm";
 
 import { BACKEND_URL } from "../constants";

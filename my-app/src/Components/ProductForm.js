@@ -52,7 +52,7 @@ const ProductForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             {formFields.map(field => (
-                field.fld_nm !== "condition" ? (
+                (field.fld_nm !== "categories" && field.fld_nm !== "condition") ? (
                     <div key={field.fld_nm}>
                         <label>{field.question}</label>
                         <input
@@ -66,9 +66,18 @@ const ProductForm = () => {
             ))}
             <label>Condition:</label>
             <select name="condition" value={formData.condition} onChange={handleChange}>
+                <option value="">Select</option>
                 <option value="old">Old</option>
                 <option value="new">New</option>
                 <option value="unused">Unused</option>
+            </select>
+            <br />
+            <label>Category:</label>
+            <select name="categories" value={formData.categories} onChange={handleChange}>
+                <option value="">Select</option>
+                <option value="clothing">Clothing</option>
+                <option value="furniture">Furniture</option>
+                <option value="school_supplies">School Supplies</option>
             </select>
             <br />
             <button type="submit">Submit</button>

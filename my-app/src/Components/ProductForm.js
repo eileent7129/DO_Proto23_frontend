@@ -52,16 +52,25 @@ const ProductForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             {formFields.map(field => (
-                <div key={field.fld_nm}>
-                    <label>{field.question}</label>
-                    <input
-                        type={field.input_type || 'text'}
-                        name={field.fld_nm}
-                        value={formData[field.fld_nm] || ''}
-                        onChange={handleChange}
-                    />
-                </div>
+                field.fld_nm !== "condition" ? (
+                    <div key={field.fld_nm}>
+                        <label>{field.question}</label>
+                        <input
+                            type={field.input_type || 'text'}
+                            name={field.fld_nm}
+                            value={formData[field.fld_nm] || ''}
+                            onChange={handleChange}
+                        />
+                    </div>
+                ) : null
             ))}
+            <label>Condition:</label>
+            <select name="condition" value={formData.condition} onChange={handleChange}>
+                <option value="old">Old</option>
+                <option value="new">New</option>
+                <option value="unused">Unused</option>
+            </select>
+            <br />
             <button type="submit">Submit</button>
         </form>
     );

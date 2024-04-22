@@ -3,12 +3,11 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Followers from "./Pages/Followers";
 import ViewItem from "./Pages/ViewItem";
-import ShoppingCart from "./Pages/ShoppingCart";
 import Dashboard from "./Pages/Dashboard";
 import Auth from "./API/Auth";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import "./Styles/App.css";
 
 function App() {
   const [loginState, setLoginState] = useState(

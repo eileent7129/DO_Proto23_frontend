@@ -1,0 +1,32 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  margin: 0;
+  padding: 14px 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar li:hover, .navbar img:hover {
+  cursor: pointer;
+}
+
+.navbar img {
+    height: 50px;
+}

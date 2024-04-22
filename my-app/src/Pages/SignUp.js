@@ -4,6 +4,8 @@ import SignUpForm from "../Components/SignUpForm";
 import "../Styles/SignUp.css";
 import { Link } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
+import Navbar from "../Components/Navbar";
+
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;
 
 function usersObjectToArray(Data) {
@@ -31,27 +33,10 @@ function SignUp() {
 
   //   useEffect(fetchUsers, []);
 
-  console.log();
-
   return (
     <div className="sign-up">
-      <div className="navbar">
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      
-	<div className="logo">
-		<h1>UNIMARKET</h1>
-	</div>
-	
+      <Navbar />
+      <h1>Sign Up for UNIMARKET</h1>
       <div className="sign-up-form">
         <SignUpForm />
         {/* <Link to={"./Login"}>Login</Link> */}

@@ -38,7 +38,6 @@ function Home() {
 
     return (
         <>
-            <Navbar />
             <h2>Home</h2>
             {products.map((product, index) => (
                 <div key={index}>

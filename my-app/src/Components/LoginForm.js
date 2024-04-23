@@ -4,15 +4,10 @@ import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../Styles/LoginForm.css";
+
 import { BACKEND_URL } from "../constants.js";
 
 const LOGIN_ENDPOINT = `${BACKEND_URL}users/login`;
-
-function objectToArray(Data) {
-  const keys = Object.keys(Data);
-  const users = keys.map((key) => Data[key]);
-  return users;
-}
 
 function LoginForm({logIn}) {
   const navigate = useNavigate();

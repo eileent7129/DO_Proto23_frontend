@@ -4,6 +4,7 @@ import SignUp from "./Pages/SignUp";
 import Followers from "./Pages/Followers";
 import ViewItem from "./Pages/ViewItem";
 import Dashboard from "./Pages/Dashboard";
+import ShoppingCart from "./Pages/ShoppingCart";
 import Auth from "./API/Auth";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -45,10 +46,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login logIn={login} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/viewItem" element={<ViewItem />} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>
             <Route path="/dashboard" element={<Dashboard logout={logout}/>} />
             <Route path="/followers" element={<Followers />} />
-            <Route path="/viewItem" element={<ViewItem />} />
           </Route>
         </Routes>
       </Router>

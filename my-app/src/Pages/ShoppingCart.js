@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../Components/Navbar";
 
 import { BACKEND_URL } from "../constants";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/shopping_cart/eileen123`;
@@ -32,6 +33,7 @@ function ShoppingCart() {
 
     return (
         <>
+            <Navbar />
             <h2>ShoppingCart</h2>
                 {products.map((product, index) => (
                     <div key={index}>

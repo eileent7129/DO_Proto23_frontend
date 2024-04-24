@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
 import profilePic from "../public/profile.png";
 import "../Styles/Dashboard.css";
+import Navbar from "../Components/Navbar";
+
+
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
 const user_info = {
@@ -18,33 +21,32 @@ const user_info = {
 
 export default function Dashboard({ logout }) {
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState(null);
+  const [error, setError] = useState('');
+  const [userInfo, setUserInfo] = useState([]);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const username = JSON.parse(localStorage.getItem("userId"));
-      console.log(username);
+  const fetchUserData = () => {
+    const username = JSON.parse(localStorage.getItem("userId"));
+    console.log("fetching ", username, "'s user data");
+    const response = axios
+      .get(`${USERS_ENDPOINT}/${username}`)
+      .then(({ data }) => setUserInfo(data))
+      .catch(() =>
+          setError("There was an error retrieving ", username, "'s information.")
+      );
+  };
 
-      try {
-        const response = await axios.get(`${USERS_ENDPOINT}/${username}`);
-        const userData = response.data;
-        setUserInfo(userData);
-      } catch (error) {
-        console.error(
-          `There was an error retrieving ${username}'s information`,
-          error
-        );
-      }
-    };
-    fetchUserData();
-  }, []);
+  useEffect(fetchUserData,[]);
+  console.log("This is the user info: ", userInfo);
+  console.log();
 
   const handleLogout = () => {
+    console.log("logout!");
     logout();
   };
 
   return (
     <>
+      <Navbar />
       {userInfo && (
         <div className="user-container">
           <div className="user-photo">
@@ -60,7 +62,7 @@ export default function Dashboard({ logout }) {
             </p>
             <p>125 items sold</p>
             <div className="following">
-              <p>{userInfo.followers.length} followers</p>
+              <p>{userInfo.followers?.length || 0} followers</p>
             </div>
           </div>
         </div>

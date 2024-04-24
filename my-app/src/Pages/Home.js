@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
 import Navbar from "../Components/Navbar";
+import "../Styles/Home.css";
 
 import { BACKEND_URL } from "../constants";
-import { useNavigate } from 'react-router-dom';
 
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
@@ -17,8 +17,6 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
-    const navigate = useNavigate();
-
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 

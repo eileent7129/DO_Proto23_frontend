@@ -8,11 +8,11 @@ import { BACKEND_URL } from "../constants.js";
 
 const LOGIN_ENDPOINT = `${BACKEND_URL}users/login`;
 
-function objectToArray(Data) {
-  const keys = Object.keys(Data);
-  const users = keys.map((key) => Data[key]);
-  return users;
-}
+// function objectToArray(Data) {
+//   const keys = Object.keys(Data);
+//   const users = keys.map((key) => Data[key]);
+//   return users;
+// }
 
 function LoginForm({logIn}) {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function LoginForm({logIn}) {
       const response = await axios.post(LOGIN_ENDPOINT, formData);
       if (response) {
         console.log("Login successful!");
-		logIn(formData.username);
+		    logIn(formData.username);
         navigate("/dashboard");
       }
     } catch (error) {

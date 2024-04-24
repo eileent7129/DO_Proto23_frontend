@@ -7,7 +7,6 @@ import Messages from "./Pages/Messages";
 import ShoppingCart from "./Pages/ShoppingCart"
 import Dashboard from "./Pages/Dashboard";
 import Navbar from "./Components/Navbar";
-import ShoppingCart from "./Pages/ShoppingCart";
 import Auth from "./API/Auth";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

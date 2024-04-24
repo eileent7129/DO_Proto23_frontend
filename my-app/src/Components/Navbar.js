@@ -2,11 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import cart from '../Images/cart.png';
 import logo from '../Images/logo.png';
+import profilePic from "../public/profile.png";
 import '../Styles/Navbar.css';
 
-export function Navbar(isLoggedIn) {
+export function Navbar() {
     const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const isLoggedIn = JSON.parse(localStorage.getItem('loginState'));
     // TODO: This needs to be moved to an import to navbar through arguments
     // Should come from auth in smth like app.js or whatever the container for everything is
 
@@ -16,7 +17,6 @@ export function Navbar(isLoggedIn) {
             <ul>
                 { !isLoggedIn && <li onClick={() => navigate('/signup')}>Sign Up</li> }
                 { !isLoggedIn && <li onClick={() => navigate('/login')}>Login</li> }
-
                 { isLoggedIn && <li onClick={() => navigate('/followers')}>Followers</li>}
                 { isLoggedIn &&<li onClick={() => navigate("/messages")}>Messages</li>}
                 { isLoggedIn && <li onClick={() => navigate('/dashboard')}><img className='circle' src={profilePic} alt="profile" /></li>}

@@ -7,7 +7,6 @@ import { BACKEND_URL } from "../constants";
 import profilePic from "../public/profile.png";
 import Navbar from "../Components/Navbar";
 import "../Styles/Dashboard.css";
-import Navbar from "../Components/Navbar";
 
 
 const USERS_ENDPOINT = `${BACKEND_URL}users`;

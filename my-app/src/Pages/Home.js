@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
 import Navbar from "../Components/Navbar";
-import "../Styles/Home.css";
+import '../Styles/Home.css';
 
 import { BACKEND_URL } from "../constants";
 
@@ -36,20 +36,23 @@ function Home() {
 
     return (
         <>
-            <Navbar />
             <h2>Home</h2>
-            {products.map((product, index) => (
-                <div key={index}>
-                    <h3>{product.name}</h3>
-                    <p>Brand: {product.brand}</p>
-                    <p>Categories: {product.categories}</p>
-                    <p>Comments: {product.comments}</p>
-                    <p>Condition: {product.condition}</p>
-                    <p>Date Posted: {product["date posted"]}</p>
-                    <p>Price: {product.price}</p>
-                    <p>User ID: {product.user_id}</p>
-                </div>
-            ))}
+            <div className="container">
+                {products.map((product, index) => (
+                    <div className="product-box" key={index}>
+                        <h3>{product.name}</h3>
+                        <p>Price: {product.price}</p>
+                        <div className="product-details">
+                            <p>Brand: {product.brand}</p>
+                            <p>Categories: {product.categories}</p>
+                            <p>Comments: {product.comments}</p>
+                            <p>Condition: {product.condition}</p>
+                            <p>Date Posted: {product["date posted"]}</p>
+                            <p>User ID: {product.user_id}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
 			 <ProductForm />
             {error && <p>{error}</p>}
         </>

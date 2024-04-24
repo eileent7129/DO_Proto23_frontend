@@ -35,13 +35,12 @@ function SignUp() {
 
   return (
     <div className="sign-up">
-      <Navbar />
       <h1>Sign Up for UNIMARKET</h1>
       <div className="sign-up-form">
         <SignUpForm />
         {/* <Link to={"./Login"}>Login</Link> */}
       </div>
-    </div>
+	  </div>
   );
 }
 

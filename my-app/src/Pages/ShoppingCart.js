@@ -33,7 +33,6 @@ function ShoppingCart() {
 
     return (
         <>
-            <Navbar />
             <h2>ShoppingCart</h2>
                 {products.map((product, index) => (
                     <div key={index}>

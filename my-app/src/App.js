@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <Router>
-	  <Navbar isLoggedIn={loginState} />
+	      <Navbar isLoggedIn={loginState} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login logIn={login} />} />

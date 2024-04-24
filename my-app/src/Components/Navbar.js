@@ -5,9 +5,9 @@ import logo from '../Images/logo.png';
 import profilePic from "../public/profile.png";
 import '../Styles/Navbar.css';
 
-export function Navbar() {
+export function Navbar({isLoggedIn}) {
     const navigate = useNavigate();
-    const isLoggedIn = JSON.parse(localStorage.getItem('loginState'));
+    //const isLoggedIn = JSON.parse(localStorage.getItem('loginState'));
     // TODO: This needs to be moved to an import to navbar through arguments
     // Should come from auth in smth like app.js or whatever the container for everything is
 

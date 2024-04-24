@@ -25,7 +25,7 @@
 
 .navbar li {
   padding: 0 20px;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   border-left: 1px solid #245501ae;
@@ -40,8 +40,9 @@
   cursor: pointer;
 }
 
-.navbar>img {
-  height: 50px;
+.navbar >img {
+  margin-left: 10px;
+  height: 45px;
 }
 
 .navbar li>img {

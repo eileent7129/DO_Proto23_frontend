@@ -47,7 +47,6 @@ export default function Dashboard({ logout }) {
 
   return (
     <>
-      <Navbar />
       {userInfo && (
         <>
           <div className="user-container">

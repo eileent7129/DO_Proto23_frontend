@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <Router>
-	      <Navbar isLoggedIn={loginState} />
+        <Navbar isLoggedIn={loginState} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login logIn={login} />} />
@@ -52,9 +52,9 @@ function App() {
           <Route path="/viewItem" element={<ViewItem />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>
-            <Route path="/dashboard" element={<Dashboard logout={logout}/>} />
+            <Route path="/dashboard" element={<Dashboard logout={logout} />} />
             <Route path="/followers" element={<Followers />} />
-			      <Route path="/messages" element={<Messages />} />
+            <Route path="/messages" element={<Messages />} />
           </Route>
         </Routes>
       </Router>

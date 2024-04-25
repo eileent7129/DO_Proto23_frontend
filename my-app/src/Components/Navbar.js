@@ -5,7 +5,7 @@ import logo from '../Images/logo.png';
 import profilePic from "../public/profile.png";
 import '../Styles/Navbar.css';
 
-export function Navbar({isLoggedIn}) {
+export function Navbar({ isLoggedIn }) {
     const navigate = useNavigate();
     //const isLoggedIn = JSON.parse(localStorage.getItem('loginState'));
     // TODO: This needs to be moved to an import to navbar through arguments
@@ -15,11 +15,11 @@ export function Navbar({isLoggedIn}) {
         <div className="navbar">
             <img onClick={() => navigate('/')} src={logo} alt="Logo" />
             <ul>
-                { !isLoggedIn && <li onClick={() => navigate('/signup')}>Sign Up</li> }
-                { !isLoggedIn && <li onClick={() => navigate('/login')}>Login</li> }
-                { isLoggedIn && <li onClick={() => navigate('/followers')}>Followers</li>}
-                { isLoggedIn &&<li onClick={() => navigate("/messages")}>Messages</li>}
-                { isLoggedIn && <li onClick={() => navigate('/dashboard')}><img className='circle' src={profilePic} alt="profile" /></li>}
+                {!isLoggedIn && <li onClick={() => navigate('/signup')}>Sign Up</li>}
+                {!isLoggedIn && <li onClick={() => navigate('/login')}>Login</li>}
+                {isLoggedIn && <li onClick={() => navigate('/followers')}>Followers</li>}
+                {isLoggedIn && <li onClick={() => navigate("/messages")}>Messages</li>}
+                {isLoggedIn && <li onClick={() => navigate('/dashboard')}><img className='circle' src={profilePic} alt="profile" /></li>}
                 {/*isLoggedIn && <li onClick={() => navigate("/saved")}>Saved</li> */}
                 <li onClick={() => navigate('/ShoppingCart')}><img src={cart} alt="Cart" /></li>
             </ul>

@@ -9,7 +9,7 @@ import { BACKEND_URL } from "../constants.js";
 
 const LOGIN_ENDPOINT = `${BACKEND_URL}users/login`;
 
-function LoginForm({logIn}) {
+function LoginForm({ logIn }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -29,7 +29,7 @@ function LoginForm({logIn}) {
       const response = await axios.post(LOGIN_ENDPOINT, formData);
       if (response) {
         console.log("Login successful!");
-		    logIn(formData.username);
+        logIn(formData.username);
         navigate("/dashboard");
       }
     } catch (error) {

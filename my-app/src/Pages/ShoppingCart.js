@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../Components/Navbar";
 
 import { BACKEND_URL } from "../constants";
-const PRODUCTS_ENDPOINT = `${BACKEND_URL}/shopping_cart/eileen123`;
+const SHOPPINGCART_ENDPOINT = `${BACKEND_URL}/shopping_cart`;
 
 function usersObjectToArray(Data) {
     const keys = Object.keys(Data);
@@ -15,37 +14,44 @@ function usersObjectToArray(Data) {
 
 function ShoppingCart() {
     const [products, setProducts] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
     const [error, setError] = useState('');
 
-    const fetchProducts = () => {
-        console.log("fetching shopping cart products");
+    const fetchShoppingCarts = () => {
+        const username = JSON.parse(localStorage.getItem("userId"));
+        console.log("fetching ", username, "'s shopping cart products");
         axios
-            .get(PRODUCTS_ENDPOINT)
+            .get(`${SHOPPINGCART_ENDPOINT}/${username}`)
             .then(({ data }) => setProducts(usersObjectToArray(data)))
+            .then(({ data }) => setUserInfo(data))
             .catch(() =>
-                setError("There was a problem retrieving the products.")
+                setError("There was a problem retrieving the shopping cart products.")
             );
     };
 
-    useEffect(fetchProducts, []);
+    useEffect(fetchShoppingCarts, []);
     console.log("These are the products: ", products);
     console.log();
 
     return (
         <>
-            <h2>ShoppingCart</h2>
+            <h2>{userInfo.username || "Guest"}'s ShoppingCart</h2>
+            <div className="container">
                 {products.map((product, index) => (
-                    <div key={index}>
+                    <div className="product-box" key={index}>
                         <h3>{product.name}</h3>
-                        <p>Brand: {product.brand}</p>
-                        <p>Categories: {product.categories}</p>
-                        <p>Comments: {product.comments}</p>
-                        <p>Condition: {product.condition}</p>
-                        <p>Date Posted: {product["date posted"]}</p>
                         <p>Price: {product.price}</p>
-                        <p>User ID: {product.user_id}</p>
+                        <div className="product-details">
+                            <p>Brand: {product.brand}</p>
+                            <p>Categories: {product.categories}</p>
+                            <p>Comments: {product.comments}</p>
+                            <p>Condition: {product.condition}</p>
+                            <p>Date Posted: {product["date posted"]}</p>
+                            <p>User ID: {product.user_id}</p>
+                        </div>
                     </div>
                 ))}
+            </div>
         </> 
     )       
 }

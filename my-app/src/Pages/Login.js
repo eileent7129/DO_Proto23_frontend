@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LoginForm from "../Components/LoginForm";
 import "../Styles/Login.css";
-import Navbar from "../Components/Navbar";
 
 import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}/users`;

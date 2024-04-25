@@ -1,7 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
-import Navbar from "../Components/Navbar";
+import veiwItem from "./ViewItem";
 import '../Styles/Home.css';
 
 import { BACKEND_URL } from "../constants";
@@ -17,6 +18,7 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 
@@ -38,7 +40,8 @@ function Home() {
         <>
             <div className="container">
                 {products.map((product, index) => (
-                    <div className="product-box" key={index}>
+                    <div className="product-box" key={index}
+                        onClick={() => navigate(`/viewItem`, { state: { product } })} >
                         <h3>{product.name}</h3>
                         <p>Price: {product.price}</p>
                         <div className="product-details">
@@ -52,7 +55,7 @@ function Home() {
                     </div>
                 ))}
             </div>
-			 <ProductForm />
+            <ProductForm />
             {error && <p>{error}</p>}
         </>
     );

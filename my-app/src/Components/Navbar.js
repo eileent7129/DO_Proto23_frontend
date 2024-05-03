@@ -7,7 +7,7 @@ import '../Styles/Navbar.css';
 
 export function Navbar({ isLoggedIn }) {
     const navigate = useNavigate();
-    //const isLoggedIn = JSON.parse(localStorage.getItem('loginState'));
+    const username = JSON.parse(localStorage.getItem("userId"));
     // TODO: This needs to be moved to an import to navbar through arguments
     // Should come from auth in smth like app.js or whatever the container for everything is
 
@@ -19,7 +19,7 @@ export function Navbar({ isLoggedIn }) {
                 {!isLoggedIn && <li onClick={() => navigate('/login')}>Login</li>}
                 {isLoggedIn && <li onClick={() => navigate('/followers')}>Followers</li>}
                 {isLoggedIn && <li onClick={() => navigate("/messages")}>Messages</li>}
-                {isLoggedIn && <li onClick={() => navigate('/dashboard')}><img className='circle' src={profilePic} alt="profile" /></li>}
+                {isLoggedIn && <li onClick={() => navigate(`/user/${username}`)}><img className='circle' src={profilePic} alt="profile" /></li>}
                 {/*isLoggedIn && <li onClick={() => navigate("/saved")}>Saved</li> */}
                 <li onClick={() => navigate('/ShoppingCart')}><img src={cart} alt="Cart" /></li>
             </ul>

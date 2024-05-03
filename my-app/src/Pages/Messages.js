@@ -78,7 +78,7 @@ function Messages() {
               }}>Send</button>
           </div>
           <Link to="/">Home</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          {/* <Link to="/dashboard">Dashboard</Link> */}
       </div>
   );
 }

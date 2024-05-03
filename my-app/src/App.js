@@ -6,6 +6,7 @@ import ViewItem from "./Pages/ViewItem";
 import Messages from "./Pages/Messages";
 import ShoppingCart from "./Pages/ShoppingCart"
 import UserDashboard from './Pages/UserDashboard';
+import Sell from './Pages/Sell';
 import Navbar from "./Components/Navbar";
 import Auth from "./API/Auth";
 import { useState, useEffect } from "react";
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login logIn={login} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/sell" element={<Sell isLoggedIn={loginState}/>} />
           <Route path="/viewItem" element={<ViewItem />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>

@@ -1,7 +1,6 @@
 // import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductForm from "../Components/ProductForm";
 import '../Styles/Home.css';
 import ProdContainerDisplay from "../Components/ProductContainerDisplay";
 
@@ -39,7 +38,6 @@ function Home() {
     return (
         <>
             <ProdContainerDisplay products={products} />
-            <ProductForm />
             {error && <p>{error}</p>}
         </>
     );

@@ -19,6 +19,11 @@ function SignUpForm() {
     saved: [],
     shopping_cart: [],
     followers: [],
+	following: [],
+	res_hall: "",
+	address: "",
+	pronouns: ""
+
   });
   const [error, setError] = useState("");
 

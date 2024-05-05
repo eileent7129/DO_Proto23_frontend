@@ -72,20 +72,14 @@ export default function Dashboard({ logout }) {
               <Button 
 			  sx={{
 				backgroundColor: "#73A942",
-				width: '200px',
+				width: '150px',
 				borderRadius: '20px',
+				'&:hover': {
+					backgroundColor: "#245501",
+				}
 			  }}
 			  variant="contained" disableElevation>
-                Follow
-              </Button>
-			  <Button 
-			  sx={{
-				backgroundColor: "#73A942",
-				width: '200px',
-				borderRadius: '20px',
-			  }}
-			  variant="contained" disableElevation>
-                Contact
+                Edit Profile
               </Button>
             </div>
           </div>

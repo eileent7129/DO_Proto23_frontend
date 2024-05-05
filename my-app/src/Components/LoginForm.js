@@ -30,7 +30,7 @@ function LoginForm({ logIn }) {
       if (response) {
         console.log("Login successful!");
         logIn(formData.username);
-        navigate("/dashboard");
+        navigate(`/user/${formData.username}`);
       }
     } catch (error) {
       console.log("error logging in: ", error);

@@ -1,9 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductForm from "../Components/ProductForm";
-import veiwItem from "./ViewItem";
 import '../Styles/Home.css';
+import ProdContainerDisplay from "../Components/ProductContainerDisplay";
 
 import { BACKEND_URL } from "../constants";
 
@@ -18,7 +17,7 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 
@@ -38,24 +37,7 @@ function Home() {
 
     return (
         <>
-            <div className="container">
-                {products.map((product, index) => (
-                    <div className="product-box" key={index}
-                        onClick={() => navigate(`/viewItem`, { state: { product } })} >
-                        <h3>{product.name}</h3>
-                        <p>Price: {product.price}</p>
-                        <div className="product-details">
-                            <p>Brand: {product.brand}</p>
-                            <p>Categories: {product.categories}</p>
-                            <p>Comments: {product.comments}</p>
-                            <p>Condition: {product.condition}</p>
-                            <p>Date Posted: {product["date posted"]}</p>
-                            <p>User ID: {product.user_id}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <ProductForm />
+            <ProdContainerDisplay products={products} />
             {error && <p>{error}</p>}
         </>
     );

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import prod_icon from '../Images/product_icon.png';
 
 export function ProdContainerDisplay({ products }) {
     const navigate = useNavigate();
@@ -11,14 +11,15 @@ export function ProdContainerDisplay({ products }) {
                 <div className="product-box" key={index}
                     onClick={() => navigate(`/viewItem`, { state: { product } })} >
                     <h3>{product.name}</h3>
-                    <p>Price: {product.price}</p>
+                    <p data-label= 'Price: '> ${product.price}</p>
+                    <img src={prod_icon} alt="Product Icon" />
                     <div className="product-details">
-                        <p>Brand: {product.brand}</p>
-                        <p>Categories: {product.categories}</p>
-                        <p>Comments: {product.comments}</p>
-                        <p>Condition: {product.condition}</p>
-                        <p>Date Posted: {product["date posted"]}</p>
-                        <p>User ID: {product.user_id}</p>
+                        <p data-label= 'Brand: '> {product.brand}</p>
+                        <p data-label= 'Categories: '> {product.categories}</p>
+                        <p data-label= 'Comments: '> {product.comments}</p>
+                        <p data-label= 'Condition: '> {product.condition}</p>
+                        <p data-label= 'Date Posted: '> {product["date posted"]}</p>
+                        <p data-label= 'User ID: '> {product.user_id}</p>
                     </div>
                 </div>
             ))}

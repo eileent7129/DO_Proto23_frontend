@@ -20,7 +20,7 @@ const user_info = {
   following_number: 55,
 };
 
-export default function Dashboard({ logout }) {
+export default function ViewUser({ logout }) {
 	const {userId} = useParams();
   const [error, setError] = useState('');
   const [userData, setUserData] = useState(null);
@@ -34,12 +34,7 @@ export default function Dashboard({ logout }) {
 
   if (!userData) {
 	return <p>Loading...</p>;
-  };
-
-  const handleLogout = () => {
-    console.log("logout!");
-    logout();
-  };
+}
 
   console.log("This is the user info: ", userData);
 
@@ -104,11 +99,6 @@ export default function Dashboard({ logout }) {
           </div>
         </>
       )}
-      <p>
-        <a onClick={handleLogout} href="/login">
-          Logout
-        </a>
-      </p>
     </>
   );
 }

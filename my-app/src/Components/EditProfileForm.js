@@ -10,19 +10,76 @@ function EditProfileForm() {
 	const [formData, setFormData] = useState({
 		first_name: "",
 		last_name: "",
-		username: "",
-		email: "",
-		password: "",
-		saved: [],
-		shopping_cart: [],
-		followers: [],
-		following: [],
 		res_hall: "",
 		address: "",
 		pronouns: ""
 	
 	  });
 
+	  return (
+		<> 
+	
+		  <div className="form">
+			<form onSubmit={handleSubmit} className="register-form">
+			  <p>First Name:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.first_name}
+				onChange={handleChange}
+				name="first_name"
+			  />
+			  <p>Last Name:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.last_name}
+				onChange={handleChange}
+				name="last_name"
+			  />
+			  <p>Residence Hall:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.res_hall}
+				onChange={handleChange}
+				name="res_hall"
+			  />
+			 <p>Address:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.address}
+				onChange={handleChange}
+				name="address"
+			  />
+			  <p>Pronouns:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.pronouns}
+				onChange={handleChange}
+				name="pronouns"
+			  />
+	
+			  <Button
+				sx={{
+				  borderRadius: "50px",
+				  width: "50%",
+				  display: "flex",
+				  alignSelf: "center",
+				  height: "50px",
+				}}
+				type="submit"
+				variant="contained"
+				disableElevation
+			  >
+				Save changes
+			  </Button>
+			</form>
+		  </div>
+		</>
+	  );
 }
 
 export default EditProfileForm;

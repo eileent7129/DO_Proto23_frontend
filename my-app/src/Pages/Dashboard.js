@@ -59,9 +59,9 @@ export default function Dashboard({ logout }) {
               <p className="username">@{userInfo.username}</p>
               <div className="address">
                 <p>
-                  <b>{user_info.res_hall}</b>,
+                  <b>{userInfo.res_hall}</b>,
                 </p>{" "}
-                <p className="street-addr">{user_info.address}</p>
+                <p className="street-addr">{userInfo.address}</p>
               </div>
               <p>125 items sold</p>
               <div className="following">

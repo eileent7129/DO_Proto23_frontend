@@ -20,7 +20,7 @@ export function Navbar({ isLoggedIn }) {
                 {isLoggedIn && <li onClick={() => navigate('/followers')}>FOLLOWERS</li>}
                 {isLoggedIn && <li onClick={() => navigate("/messages")}>MESSAGES</li>}
                 <li onClick={() => {isLoggedIn ? navigate('/sell') :  navigate('/login')}}>SELL</li>
-                {isLoggedIn && <li onClick={() => navigate(`/user/${username}`)}><img className='profile' src={profilePic} alt="profile" /></li>}
+                {isLoggedIn && <li onClick={() => navigate(`/dashboard`)}><img className='profile' src={profilePic} alt="profile" /></li>}
                 {/*isLoggedIn && <li onClick={() => navigate("/saved")}>Saved</li> */}
                 <li onClick={() => navigate('/ShoppingCart')}><img src={cart} alt="Cart" /></li>
             </ul>

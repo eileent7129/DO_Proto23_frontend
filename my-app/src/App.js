@@ -5,7 +5,8 @@ import Followers from "./Pages/Followers";
 import ViewItem from "./Pages/ViewItem";
 import Messages from "./Pages/Messages";
 import ShoppingCart from "./Pages/ShoppingCart"
-import UserDashboard from './Pages/UserDashboard';
+import ViewUser from './Pages/ViewUser';
+import Dashboard from './Pages/Dashboard';
 import Sell from './Pages/Sell';
 import Navbar from "./Components/Navbar";
 import Auth from "./API/Auth";
@@ -54,9 +55,10 @@ function App() {
           <Route path="/viewItem" element={<ViewItem />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>
+			<Route path="/dashboard" element={<Dashboard logout={logout} />} />
             <Route path="/followers" element={<Followers />} />
             <Route path="/messages" element={<Messages />} />
-			      <Route path="/user/:userId" element={<UserDashboard logout={logout} />} />
+			<Route path="/user/:userId" element={<ViewUser />} />
           </Route>
         </Routes>
       </Router>

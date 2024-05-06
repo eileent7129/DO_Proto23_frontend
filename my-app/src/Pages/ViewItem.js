@@ -1,16 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Button from "@mui/material/Button";
 import {useNavigate} from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import { BACKEND_URL } from "../constants";
+import { useParams } from "react-router-dom";
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 export default function ViewItem() {
 	const navigate = useNavigate();
-	const location = useLocation();
-	const prodInfo = location.state.product;
+	const {prodId} = useParams();
+	const [prodInfo, setProdInfo] = useState(null);
+	const [error, setError] = useState('');
+
+	const fetchProducts = () => {
+        console.log("fetching products");
+        axios
+            .get(`${PRODUCTS_ENDPOINT}/${prodId}`)
+            .then(({ data }) => setProdInfo(data))
+            .catch(() =>
+                setError("There was a problem retrieving the products.")
+            );
+    };
+
+	useEffect(fetchProducts, [prodId]);
+
+	if (!prodInfo) {
+		return <p>Loading...</p>;
+	};
 
 	return (
 		<>

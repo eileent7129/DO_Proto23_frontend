@@ -26,8 +26,8 @@
 .navbar li {
   padding: 0 20px;
   font-size: 17px;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  font-family: Inter, sans-serif;
   border-left: 1px solid #245501ae;
   height: 100%;
   display: flex;
@@ -46,11 +46,11 @@
 }
 
 .navbar li>img {
-  height: 30px;
+  height: 35px;
 }
 
-.navbar .circle {
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
+.navbar .profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 10%;
 }

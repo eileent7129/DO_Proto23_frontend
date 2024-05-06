@@ -1,10 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductForm from "../Components/ProductForm";
-import veiwItem from "./ViewItem";
 import '../Styles/Home.css';
 import prod_icon from '../Images/product_icon.png';
+import ProdContainerDisplay from "../Components/ProductContainerDisplay";
 
 import { BACKEND_URL } from "../constants";
 
@@ -19,7 +18,7 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 
@@ -58,6 +57,7 @@ function Home() {
                 ))}
             </div>
             <ProductForm />
+            <ProdContainerDisplay products={products} />
             {error && <p>{error}</p>}
         </>
     );

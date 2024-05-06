@@ -34,7 +34,12 @@ export default function Dashboard({ logout }) {
 
   if (!userData) {
 	return <p>Loading...</p>;
-}
+  };
+
+  const handleLogout = () => {
+    console.log("logout!");
+    logout();
+  };
 
   console.log("This is the user info: ", userData);
 
@@ -99,6 +104,11 @@ export default function Dashboard({ logout }) {
           </div>
         </>
       )}
+      <p>
+        <a onClick={handleLogout} href="/login">
+          Logout
+        </a>
+      </p>
     </>
   );
 }

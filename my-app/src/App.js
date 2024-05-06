@@ -52,7 +52,7 @@ function App() {
           <Route path="/login" element={<Login logIn={login} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/sell" element={<Sell isLoggedIn={loginState}/>} />
-          <Route path="/viewItem" element={<ViewItem />} />
+          <Route path="/viewItem/:prodId" element={<ViewItem />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>
 			<Route path="/dashboard" element={<Dashboard logout={logout} />} />

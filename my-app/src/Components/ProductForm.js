@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../constants.js";
+import '../Styles/ProductForm.css';
 
 const PRODUCT_FORM_ENDPOINT = `${BACKEND_URL}get_product_form`;
 const PRODUCT_ENDPOINT = `${BACKEND_URL}product`;
@@ -50,7 +50,7 @@ const ProductForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="product-form" onSubmit={handleSubmit}>
             {formFields.map(field => (
                 (field.fld_nm !== "categories" && field.fld_nm !== "condition") ? (
                     <div key={field.fld_nm}>

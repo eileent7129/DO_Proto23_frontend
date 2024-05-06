@@ -1,4 +1,4 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../Styles/Home.css';
@@ -17,7 +17,7 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 

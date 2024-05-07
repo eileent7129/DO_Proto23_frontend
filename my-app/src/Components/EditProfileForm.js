@@ -7,6 +7,8 @@ import { BACKEND_URL } from "../constants";
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
 function EditProfileForm() {
+	const navigate = useNavigate();
+	const [error, setError] = useState('');
 	const [formData, setFormData] = useState({
 		first_name: "",
 		last_name: "",
@@ -16,11 +18,35 @@ function EditProfileForm() {
 	
 	  });
 
+	  const handleChange = (event) => {
+		setFormData((prevData) => ({
+			...prevData,
+			[event.target.name]: event.target.value,
+		}));
+	  };
+
+	  const handleUpdate = async () => {
+		try {
+			const username = JSON.parse(localStorage.getItem("userId"));
+			const response = await axios.put(`${USERS_ENDPOINT}/${username}`, formData);
+			console.log("User profile updated successfully:", response.data);
+			navigate("/dashboard");
+		  } catch (error) {
+			setError("There was a problem updating the user profile.");
+		  }
+	  }
+
+	  const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log("save changes button pressed");
+		handleUpdate();
+	  };
+
 	  return (
 		<> 
 	
 		  <div className="form">
-			<form onSubmit={handleSubmit} className="register-form">
+			<form onSubmit={handleSubmit} className="edit-profile-form">
 			  <p>First Name:</p>
 			  <TextField
 				id="outlined-basic"

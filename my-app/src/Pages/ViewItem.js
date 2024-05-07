@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import {useNavigate} from 'react-router-dom';
 import { BACKEND_URL } from "../constants";
 import { useParams } from "react-router-dom";
-const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
+const PRODUCTS_ENDPOINT = `${BACKEND_URL}product`;
 
 export default function ViewItem() {
 	const navigate = useNavigate();
@@ -25,11 +25,15 @@ export default function ViewItem() {
 	useEffect(fetchProducts, [prodId]);
 
 	if (!prodInfo) {
-		return <p>Loading...</p>;
+		return (
+			<p>Loading...</p>
+		)
+		
 	};
 
 	return (
 		<>
+		
 			<h2>{prodInfo.name}</h2>
 
 			<div className="item-container">

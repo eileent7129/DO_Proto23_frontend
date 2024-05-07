@@ -8,6 +8,7 @@ import ShoppingCart from "./Pages/ShoppingCart"
 import ViewUser from './Pages/ViewUser';
 import Dashboard from './Pages/Dashboard';
 import Sell from './Pages/Sell';
+import UpdateProfile from "./Pages/UpdateProfile";
 import Navbar from "./Components/Navbar";
 import Auth from "./API/Auth";
 import { useState, useEffect } from "react";
@@ -59,6 +60,7 @@ function App() {
             <Route path="/followers" element={<Followers />} />
             <Route path="/messages" element={<Messages />} />
 			<Route path="/user/:userId" element={<ViewUser />} />
+			<Route path="/update-profile/:userId" element={<UpdateProfile />} />
           </Route>
         </Routes>
       </Router>

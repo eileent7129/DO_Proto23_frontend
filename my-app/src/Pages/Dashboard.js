@@ -69,7 +69,8 @@ export default function Dashboard({ logout }) {
               </div>
             </div>
             <div className="user-buttons">
-              <Button 
+              <Button
+			  onClick={() => navigate(`/update-profile/${userInfo.username}`)} 
 			  sx={{
 				backgroundColor: "#73A942",
 				width: '150px',

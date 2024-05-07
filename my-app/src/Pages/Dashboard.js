@@ -17,9 +17,9 @@ export default function Dashboard({ logout }) {
 
   useEffect(() => {
     axios 
-    .get(`${USERS_ENDPOINT}/${userId}`)
-    .then(({data}) => setUserData(data))
-    .catch(() => setError("There was a problem retrieving user data."))
+      .get(`${USERS_ENDPOINT}/${userId}`)
+      .then(({data}) => setUserData(data))
+      .catch(() => setError("There was a problem retrieving user data."))
   }, [userId]);
 
   if (!userData) {

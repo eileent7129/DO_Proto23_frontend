@@ -9,7 +9,7 @@ export function ProdContainerDisplay({ products }) {
         <div className="container">
             {products.map((product, index) => (
                 <div className="product-box" key={index}
-                    onClick={() => navigate(`/viewItem/${product._id}`, { state: { product } })} >
+                    onClick={() => navigate(`/viewItem/${product._id}`)} >
                     <h3>{product.name}</h3>
                     <p data-label= 'Price: '> ${product.price}</p>
                     <img src={prod_icon} alt="Product Icon" />

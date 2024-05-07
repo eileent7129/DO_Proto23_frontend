@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpForm from "../Components/SignUpForm";
 import "../Styles/SignUp.css";
 import { BACKEND_URL } from "../constants";

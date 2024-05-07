@@ -35,6 +35,8 @@ function Home() {
     console.log("These are the products: ", products);
     console.log();
 
+
+    
     return (
         <>
             <ProdContainerDisplay products={products} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
-//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
 import profilePic from "../public/profile.png";
@@ -10,43 +10,32 @@ import "../Styles/Dashboard.css";
 
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
-const user_info = {
-  name: "Jane Doe",
-  username: "janedoe",
-  res_hall: "Carlyle Court",
-  address: "25 Union Square W, New York, NY",
-  followers_number: 350,
-  following_number: 55,
-};
-
 export default function Dashboard({ logout }) {
-  const navigate = useNavigate();
+	const userId = JSON.parse(localStorage.getItem("userId"));
   const [error, setError] = useState('');
-  const [userInfo, setUserInfo] = useState([]);
+  const [userData, setUserData] = useState(null);
 
-  const fetchUserData = () => {
-    const username = JSON.parse(localStorage.getItem("userId"));
-    console.log("fetching ", username, "'s user data");
-    const response = axios
-      .get(`${USERS_ENDPOINT}/${username}`)
-      .then(({ data }) => setUserInfo(data))
-      .catch(() =>
-          setError("There was an error retrieving ", username, "'s information.")
-      );
+  useEffect(() => {
+    axios 
+      .get(`${USERS_ENDPOINT}/${userId}`)
+      .then(({data}) => setUserData(data))
+      .catch(() => setError("There was a problem retrieving user data."))
+  }, [userId]);
+
+  if (!userData) {
+	return <p>Loading...</p>;
   };
-
-  useEffect(fetchUserData,[]);
-  console.log("This is the user info: ", userInfo);
-  console.log();
 
   const handleLogout = () => {
     console.log("logout!");
     logout();
   };
 
+  console.log("This is the user info: ", userData);
+
   return (
     <>
-      {userInfo && (
+      {userData && (
         <>
           <div className="user-container">
             <div className="user-photo">
@@ -54,18 +43,18 @@ export default function Dashboard({ logout }) {
             </div>
             <div className="user-info">
               <h2>
-                {userInfo.first_name} {userInfo.last_name}
+                {userData.first_name} {userData.last_name}
               </h2>
-              <p className="username">@{userInfo.username}</p>
+              <p className="username">@{userData.username}</p>
               <div className="address">
                 <p>
-                  <b>{userInfo.res_hall}</b>,
+                  <b>{userData.res_hall}</b>,
                 </p>{" "}
-                <p className="street-addr">{userInfo.address}</p>
+                <p className="street-addr">{userData.address}</p>
               </div>
               <p>125 items sold</p>
               <div className="following">
-                <p>{userInfo.followers?.length || 0} followers</p>
+                <p>{userData.followers?.length || 0} followers</p>
               </div>
             </div>
             <div className="user-buttons">
@@ -73,14 +62,20 @@ export default function Dashboard({ logout }) {
 			  onClick={() => navigate(`/update-profile/${userInfo.username}`)} 
 			  sx={{
 				backgroundColor: "#73A942",
-				width: '150px',
+				width: '200px',
 				borderRadius: '20px',
-				'&:hover': {
-					backgroundColor: "#245501",
-				}
 			  }}
 			  variant="contained" disableElevation>
-                Edit Profile
+                Follow
+              </Button>
+			  <Button 
+			  sx={{
+				backgroundColor: "#73A942",
+				width: '200px',
+				borderRadius: '20px',
+			  }}
+			  variant="contained" disableElevation>
+                Contact
               </Button>
             </div>
           </div>

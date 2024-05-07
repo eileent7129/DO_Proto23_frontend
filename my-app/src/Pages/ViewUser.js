@@ -2,34 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
-//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
 import profilePic from "../public/profile.png";
 import "../Styles/Dashboard.css";
 
-
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
-
-const user_info = {
-  name: "Jane Doe",
-  username: "janedoe",
-  res_hall: "Carlyle Court",
-  address: "25 Union Square W, New York, NY",
-  followers_number: 350,
-  following_number: 55,
-};
 
 export default function ViewUser({ logout }) {
 	const {userId} = useParams();
+  console.log("This is the user id: ", userId);
   const [error, setError] = useState('');
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-	axios 
-	.get(`${USERS_ENDPOINT}/${userId}`)
-	.then(({data}) => setUserData(data))
-	.catch(() => setError("There was a problem retrieving user data."))
+    axios 
+      .get(`${USERS_ENDPOINT}/${userId}`)
+      .then(({data}) => setUserData(data))
+      .catch(() => setError("There was a problem retrieving user data."))
   }, [userId]);
 
   if (!userData) {
@@ -53,9 +43,9 @@ export default function ViewUser({ logout }) {
               <p className="username">@{userData.username}</p>
               <div className="address">
                 <p>
-                  <b>{user_info.res_hall}</b>,
+                  <b>{userData.res_hall}</b>,
                 </p>{" "}
-                <p className="street-addr">{user_info.address}</p>
+                <p className="street-addr">{userData.address}</p>
               </div>
               <p>125 items sold</p>
               <div className="following">

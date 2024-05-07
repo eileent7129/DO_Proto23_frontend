@@ -13,12 +13,18 @@ export function Navbar({ isLoggedIn }) {
 
     return (
         <div className="navbar">
-            <img onClick={() => navigate('/')} src={logo} alt="Logo" />
+            <div onClick={() => navigate('/')} id='navbar-logo'>
+                <img src={logo} alt="Logo" />
+                <span>
+                    UniMarket
+                </span>
+            </div>
+
             <ul>
                 {!isLoggedIn && <li onClick={() => navigate('/signup')}>SIGN UP</li>}
                 {!isLoggedIn && <li onClick={() => navigate('/login')}>LOGIN</li>}
                 {isLoggedIn && <li onClick={() => navigate('/followers')}>FOLLOWERS</li>}
-                {isLoggedIn && <li onClick={() => navigate("/messages")}>MESSAGES</li>}
+                {isLoggedIn && <li onClick={() => navigate('/messages')}>MESSAGES</li>}
                 <li onClick={() => {isLoggedIn ? navigate('/sell') :  navigate('/login')}}>SELL</li>
                 {isLoggedIn && <li onClick={() => navigate(`/dashboard`)}><img className='profile' src={profilePic} alt="profile" /></li>}
                 {/*isLoggedIn && <li onClick={() => navigate("/saved")}>Saved</li> */}

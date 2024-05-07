@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../constants";
 import profilePic from "../public/profile.png";
@@ -10,26 +11,30 @@ import "../Styles/Dashboard.css";
 
 const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
-export default function Dashboard({ logout }) {
-	const userId = JSON.parse(localStorage.getItem("userId"));
+const user_info = {
+  name: "Jane Doe",
+  username: "janedoe",
+  res_hall: "Carlyle Court",
+  address: "25 Union Square W, New York, NY",
+  followers_number: 350,
+  following_number: 55,
+};
+
+export default function ViewUser({ logout }) {
+	const {userId} = useParams();
   const [error, setError] = useState('');
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    axios 
-    .get(`${USERS_ENDPOINT}/${userId}`)
-    .then(({data}) => setUserData(data))
-    .catch(() => setError("There was a problem retrieving user data."))
+	axios 
+	.get(`${USERS_ENDPOINT}/${userId}`)
+	.then(({data}) => setUserData(data))
+	.catch(() => setError("There was a problem retrieving user data."))
   }, [userId]);
 
   if (!userData) {
 	return <p>Loading...</p>;
-  };
-
-  const handleLogout = () => {
-    console.log("logout!");
-    logout();
-  };
+}
 
   console.log("This is the user info: ", userData);
 
@@ -48,9 +53,9 @@ export default function Dashboard({ logout }) {
               <p className="username">@{userData.username}</p>
               <div className="address">
                 <p>
-                  <b>{userData.res_hall}</b>,
+                  <b>{user_info.res_hall}</b>,
                 </p>{" "}
-                <p className="street-addr">{userData.address}</p>
+                <p className="street-addr">{user_info.address}</p>
               </div>
               <p>125 items sold</p>
               <div className="following">
@@ -94,11 +99,6 @@ export default function Dashboard({ logout }) {
           </div>
         </>
       )}
-      <p>
-        <a onClick={handleLogout} href="/login">
-          Logout
-        </a>
-      </p>
     </>
   );
 }

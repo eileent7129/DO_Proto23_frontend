@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import '../Styles/Home.css';
+import ProdContainerDisplay from "../Components/ProductContainerDisplay";
 
 import { BACKEND_URL } from "../constants";
-//import topnav from "../Components/Home.css";
+
 const PRODUCTS_ENDPOINT = `${BACKEND_URL}/product`;
 
 function usersObjectToArray(Data) {
@@ -14,6 +17,7 @@ function usersObjectToArray(Data) {
 }
 
 function Home() {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
 
@@ -35,35 +39,7 @@ function Home() {
     
     return (
         <>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/login">Login</a>
-                    </li>
-					<li>
-						<a href="/signup">Sign Up</a>
-					</li>
-                    <li>
-                        <a href="/followers">Followers</a>
-                    </li>
-					<li>
-						<a href="viewItem">View Item</a>
-					</li>
-                </ul>
-            </nav>
-            <h2>Home</h2>
-            {products.map((product, index) => (
-                <div key={index}>
-                    <h3>{product.name}</h3>
-                    <p>Brand: {product.brand}</p>
-                    <p>Categories: {product.categories}</p>
-                    <p>Comments: {product.comments}</p>
-                    <p>Condition: {product.condition}</p>
-                    <p>Date Posted: {product["date posted"]}</p>
-                    <p>Price: {product.price}</p>
-                    <p>User ID: {product.user_id}</p>
-                </div>
-            ))}
+            <ProdContainerDisplay products={products} />
             {error && <p>{error}</p>}
         </>
     );

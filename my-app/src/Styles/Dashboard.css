@@ -1,0 +1,68 @@
+/* Dashboard.css */
+
+.user-container {
+  display: flex;
+  align-items: center;
+  background-color: #F8F8F8;
+  padding: 50px 50px 30px 50px ;
+
+}
+
+.user-photo {
+  width: 100px;
+  height: 100px;
+  overflow: hidden; /* Ensure the image stays within the container */
+  padding-right: 15px;
+}
+
+.user-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.user-info {
+  flex: 1; 
+}
+
+.user-info h2 {
+  margin: 0; 
+}
+
+.user-info p {
+  margin: 5px 0; 
+}
+
+.following {
+  margin-top: 10px;
+}
+
+.following p {
+  margin: 0; 
+}
+.username, .street-addr{
+	color: #C6C6C6;
+}
+.address{
+	display: flex;
+	gap: 5px;
+}
+
+.description-market{
+	display: flex;
+	flex-direction: column;
+	padding: 20px 50px 50px 50px;
+}
+
+.description{
+	width: 70%;
+}
+.links{
+	display: flex;
+	gap: 50px;
+}
+.user-buttons{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

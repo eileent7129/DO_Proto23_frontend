@@ -55,10 +55,10 @@ function App() {
           <Route path="/viewItem/:prodId" element={<ViewItem />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route element={<Auth loginState={loginState} logout={logout} />}>
-			<Route path="/dashboard" element={<Dashboard logout={logout} />} />
+			      <Route path="/dashboard" element={<Dashboard logout={logout} />} />
             <Route path="/followers" element={<Followers />} />
             <Route path="/messages" element={<Messages />} />
-			<Route path="/user/:userId" element={<ViewUser />} />
+			      <Route path="/user/:userId" element={<ViewUser />} />
           </Route>
         </Routes>
       </Router>

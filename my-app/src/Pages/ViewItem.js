@@ -8,6 +8,7 @@ const PRODUCTS_ENDPOINT = `${BACKEND_URL}product`;
 
 export default function ViewItem() {
 	const navigate = useNavigate();
+	const userId = localStorage.getItem('userId');
 	const {prodId} = useParams();
 	const [prodInfo, setProdInfo] = useState(null);
 	const [error, setError] = useState('');
@@ -31,6 +32,14 @@ export default function ViewItem() {
 		
 	};
 
+	const handleAdd = () => {
+		console.log("add to cart");
+		axios
+			.post(`${BACKEND_URL}shopping_cart/${userId}`)
+			.then(() => navigate(`/shopping_cart/${userId}`))
+			.catch(() => setError("There was a problem adding the item to the cart."));
+	};
+
 	return (
 		<>
 		
@@ -48,6 +57,9 @@ export default function ViewItem() {
 					<p>Date Posted: {prodInfo.date_posted}</p>
 					<p><Button onClick={() => navigate(`/user/${prodInfo.user_id}`)}>{prodInfo.user_id}</Button> "{prodInfo.comments}"</p>
 				</div>
+				{/* <li>
+					<Button onClick={() => (userId ? navigate(`/shopping_cart/${userId}`) : navigate(`/login`))}>Edit</Button>
+				</li> */}
 			</div>
 		</>
 

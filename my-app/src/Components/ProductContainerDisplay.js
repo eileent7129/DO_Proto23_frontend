@@ -24,6 +24,7 @@ export function ProdContainerDisplay({ products }) {
                 </div>
             ))}
         </div>
+        
     </>
     );
 }

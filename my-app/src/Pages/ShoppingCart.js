@@ -46,6 +46,7 @@ function ShoppingCart() {
     useEffect(fetchUserData, []);
     useEffect(fetchShoppingCarts, []);
     console.log("These are the products: ", products);
+    console.log("This is the user info: ", userInfo);
     console.log();
 
     return (

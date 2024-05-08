@@ -44,7 +44,7 @@ export default function Dashboard({ logout }) {
             </div>
             <div className="user-info">
               <h2>
-                {userData.first_name} {userData.last_name}
+                {userData.first_name} {userData.last_name}, {userData.pronouns}
               </h2>
               <p className="username">@{userData.username}</p>
               <div className="address">
@@ -56,6 +56,7 @@ export default function Dashboard({ logout }) {
               <p>125 items sold</p>
               <div className="following">
                 <p>{userData.followers?.length || 0} followers</p>
+				<p>{userData.following?.length || 0} following</p>
               </div>
             </div>
             <div className="user-buttons">
@@ -63,29 +64,24 @@ export default function Dashboard({ logout }) {
 			  onClick={() => navigate(`/update-profile/${userData.username}`)} 
 			  sx={{
 				backgroundColor: "#73A942",
-				width: '200px',
+				width: '150px',
 				borderRadius: '20px',
+				'&:hover': {
+					backgroundColor: "#245501",
+				}
 			  }}
 			  variant="contained" disableElevation>
-                Follow
-              </Button>
-			  <Button 
-			  sx={{
-				backgroundColor: "#73A942",
-				width: '200px',
-				borderRadius: '20px',
-			  }}
-			  variant="contained" disableElevation>
-                Contact
+                Edit Profile
               </Button>
             </div>
           </div>
           <div className="description-market">
             <div className="description">
               <p>
-                🧶 Elevate your style with my handcrafted pieces, each made with
+                {userData.market_desc}
+				{/* 🧶 Elevate your style with my handcrafted pieces, each made with
                 love and attention to detail. DM for custom orders and stay
-                connected for the latest updates! 🌟👚👟📦
+                connected for the latest updates! 🌟👚👟📦 */}
               </p>
             </div>
             <div className="market">

@@ -14,7 +14,8 @@ function EditProfileForm() {
 		last_name: "",
 		res_hall: "",
 		address: "",
-		pronouns: ""
+		pronouns: "",
+		market_desc: "",
 	
 	  });
 
@@ -86,6 +87,14 @@ function EditProfileForm() {
 				value={formData.pronouns}
 				onChange={handleChange}
 				name="pronouns"
+			  />
+			  <p>Market Description:</p>
+			  <TextField
+				id="outlined-basic"
+				variant="outlined"
+				value={formData.market_desc}
+				onChange={handleChange}
+				name="market_desc"
 			  />
 	
 			  <Button

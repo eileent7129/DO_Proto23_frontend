@@ -32,6 +32,13 @@ const ProductForm = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const userId = JSON.parse(localStorage.getItem("userId"));
+    formData.user_id = userId;
+
+    const date = new Date();
+    const showTime = date.getUTCMonth() + "/" + date.getDay() + "/" + date.getFullYear();
+    formData.date_posted = showTime.toString();
+
     const handleProductForm = async () => {
         try {
             const response = await axios.post(PRODUCT_ENDPOINT, formData);
@@ -49,10 +56,11 @@ const ProductForm = () => {
         handleProductForm();
     };
 
+
     return (
         <form className="product-form" onSubmit={handleSubmit}>
             {formFields.map(field => (
-                (field.fld_nm !== "categories" && field.fld_nm !== "condition") ? (
+                (field.fld_nm !== "user_id" && field.fld_nm !== "date_posted" && field.fld_nm !== "categories" && field.fld_nm !== "condition") ? (
                     <div key={field.fld_nm}>
                         <label>{field.question}</label>
                         <input
@@ -64,22 +72,26 @@ const ProductForm = () => {
                     </div>
                 ) : null
             ))}
-            <label>Condition:</label>
-            <select name="condition" value={formData.condition} onChange={handleChange}>
-                <option value="">Select</option>
-                <option value="old">Old</option>
-                <option value="new">New</option>
-                <option value="unused">Unused</option>
-            </select>
-            <br />
-            <label>Category:</label>
-            <select name="categories" value={formData.categories} onChange={handleChange}>
-                <option value="">Select</option>
-                <option value="clothing">Clothing</option>
-                <option value="furniture">Furniture</option>
-                <option value="school_supplies">School Supplies</option>
-            </select>
-            <br />
+            <div>
+                <label>Condition:</label>
+                <select name="condition" value={formData.condition} onChange={handleChange}>
+                    <option value="">Select</option>
+                    <option value="old">Old</option>
+                    <option value="new">New</option>
+                    <option value="unused">Unused</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Category:</label>
+                <select name="categories" value={formData.categories} onChange={handleChange}>
+                    <option value="">Select</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="school_supplies">School Supplies</option>
+                </select>
+            </div>
+
             <button type="submit">Submit</button>
         </form>
     );

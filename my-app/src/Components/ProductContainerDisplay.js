@@ -10,7 +10,7 @@ export function ProdContainerDisplay({ products }) {
             {products.map((product, index) => (
                 <div className="product-box" key={index}
                     onClick={() => navigate(`/viewItem/${product._id}`)} >
-                    <h3>{product.name}</h3>
+                    <h3>{product.product_name}</h3>
                     <p data-label= 'Price: '> ${product.price}</p>
                     <img src={prod_icon} alt="Product Icon" />
                     <div className="product-details">

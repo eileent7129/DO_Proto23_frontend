@@ -12,6 +12,7 @@ const USERS_ENDPOINT = `${BACKEND_URL}users`;
 
 export default function Dashboard({ logout }) {
 	const userId = JSON.parse(localStorage.getItem("userId"));
+  const navigate = useNavigate();
   const [error, setError] = useState('');
   const [userData, setUserData] = useState(null);
 
@@ -59,7 +60,7 @@ export default function Dashboard({ logout }) {
             </div>
             <div className="user-buttons">
               <Button
-			  onClick={() => navigate(`/update-profile/${userInfo.username}`)} 
+			  onClick={() => navigate(`/update-profile/${userData.username}`)} 
 			  sx={{
 				backgroundColor: "#73A942",
 				width: '200px',

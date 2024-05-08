@@ -34,7 +34,7 @@ export default function ViewItem() {
 	return (
 		<>
 		
-			<h2>{prodInfo.name}</h2>
+			<h2>{prodInfo.product_name}</h2>
 
 			<div className="item-container">
 				<div className="item-photo">

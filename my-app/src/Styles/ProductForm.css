@@ -1,6 +1,9 @@
 .product-form {
     gap: 10px;
-    margin: 20px auto;
+    margin: 20px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product-form label {
@@ -11,7 +14,6 @@
 
 .product-form input,
 .product-form select {
-    width: calc(50% - 130px);
     padding: 5px;
     margin-bottom: 20px;
 }
